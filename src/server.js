@@ -7,7 +7,13 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(pinoLogger());
+app.use(
+  pinoLogger({
+    transport: {
+      target: 'pino-pretty',
+    },
+  }),
+);
 
 
 app.get('/notes', (req, res) => {
