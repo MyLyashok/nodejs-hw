@@ -20,11 +20,12 @@ app.use(cookieParser());
 app.use(cors());
 
 app.use(authRouter);
-
-app.use('/notes', notesRouter);
+app.use(notesRouter);
 
 app.use(notFoundHandler);
+
 app.use(errors());
+
 app.use(errorHandler);
 
 const startServer = async () => {
